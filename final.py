@@ -1,15 +1,15 @@
 playerOne = input("player one, what is your name?" )
 playerTwo = input("player two, what is your name?" )
+import random
 
-def whosFirst():
-    import random
+def whosFirst(p1, p2):
     n = random.randint(1, 2)
     if n == 1:
-        print(playerOne, "you are first.")
-        return playerOne
+        print(p1, "you are first.")
+        return p1
     else:
-        print(playerTwo, "you are first.")
-        return playerTwo
+        print(p2, "you are first.")
+        return p2
 
 def piecesForPlayers(p1name, p2name):
     done = True
@@ -34,4 +34,7 @@ pieces = piecesForPlayers(playerOne, playerTwo)
 print("Player 1 name is", playerOne, "and their piece is", pieces[0])
 print("Player 2 name is", playerTwo, "and their piece is", pieces[1])
 
-whosFirst()
+firstPlayer = whosFirst(playerOne, playerTwo)
+print(firstPlayer)
+
+
