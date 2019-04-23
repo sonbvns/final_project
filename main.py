@@ -1,7 +1,7 @@
 
 
-import board
-from board import makeboard
+import benjamin_milestones
+from benjamin_milestones import makeboard
 
 
-board.makeboard()
+benjamin_milestones.makeboard()
