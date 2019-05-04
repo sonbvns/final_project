@@ -3,6 +3,7 @@ playerTwo = input("player two, what is your name?" )
 import random
 
 def whosFirst(p1, p2):
+    """decides whos first. 50/50 chance."""
     n = random.randint(1, 2)
     if n == 1:
         print(p1, "you are first.")
@@ -12,6 +13,7 @@ def whosFirst(p1, p2):
         return p2
 
 def piecesForPlayers(p1name, p2name):
+    """assigns x or o to first players choice. allows players to input again if x or o not entered."""
     done = True
     while done is True:
         char = input(p1name + " would you like to be X or O?: ")
@@ -28,32 +30,32 @@ def piecesForPlayers(p1name, p2name):
     print(p2name , "You are ", plyr2)
     return (plyr1, plyr2)
 
-def board_position(position,board,player):
-	"""
-	places  player input to a position in list. list is board
-	"""
-	board[position] = player
+def board_position(posi, board, plyr):
+    """
+    places  player input to a position in list. list is board
+    """
+    board[posi] = player
 
-def winCheck(board,player):
+def winCheck(board, plyr):
     """
     looks at possible win combos to check for winner
     """
-  return (board[0] == board[1] == board[2] == player or
-           board[3] == board[4] == board[5] == player or
-           board[6] == board[7] == board[8] == player or
-           board[0] == board[3] == board[6] == player or
-           board[1] == board[4] == board[7] == player or
-           board[2] == board[5] == board[8] == player or
-           board[0] == board[4] == board[8] == player or
-           board[6] == board[4] == board[2] == player)
+    return (board[0] == board[1] == board[2] == plyr or
+           board[3] == board[4] == board[5] == plyr or
+           board[6] == board[7] == board[8] == plyr or
+           board[0] == board[3] == board[6] == plyr or
+           board[1] == board[4] == board[7] == plyr or
+           board[2] == board[5] == board[8] == plyr or
+           board[0] == board[4] == board[8] == plyr or
+           board[6] == board[4] == board[2] == plyr)
 
 def replay():
-	"""
-	boolean function:asks users for replay.for Y.... input returns True otherwise returns false
-	"""
-	decision = input("Do you want to play again????").lower()
-	if decision == 'yes':
-		return True
+    """
+    boolean. asks users to replay? for 'yes' input returns true otherwise returns false
+    """
+    decision = input("do you want to play again?").lower()
+    if decision == 'yes':
+        return True
 
 pieces = piecesForPlayers(playerOne, playerTwo)
 
