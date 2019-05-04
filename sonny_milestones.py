@@ -28,8 +28,35 @@ def piecesForPlayers(p1name, p2name):
     print(p2name , "You are ", plyr2)
     return (plyr1, plyr2)
 
+def board_position(position,board,player):
+	"""
+	places  player input to a position in list. list is board
+	"""
+	board[position] = player
+
+def winCheck(board,player):
+    """
+    looks at possible win combos to check for winner
+    """
+  return (board[0] == board[1] == board[2] == player or
+           board[3] == board[4] == board[5] == player or
+           board[6] == board[7] == board[8] == player or
+           board[0] == board[3] == board[6] == player or
+           board[1] == board[4] == board[7] == player or
+           board[2] == board[5] == board[8] == player or
+           board[0] == board[4] == board[8] == player or
+           board[6] == board[4] == board[2] == player)
+
+def replay():
+	"""
+	boolean function:asks users for replay.for Y.... input returns True otherwise returns false
+	"""
+	decision = input("Do you want to play again????").lower()
+	if decision == 'yes':
+		return True
 
 pieces = piecesForPlayers(playerOne, playerTwo)
+
 
 print("Player 1 name is", playerOne, "and their piece is", pieces[0])
 print("Player 2 name is", playerTwo, "and their piece is", pieces[1])
